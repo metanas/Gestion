@@ -9,7 +9,7 @@ const url = require('url')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
-let mainWindow
+//let main window
 
 function createWindow () {
   // Create the browser window.
@@ -46,7 +46,7 @@ app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
     app.quit()
   }
-})
+});
 
 app.on('activate', function () {
   // On OS X it's common to re-create a window in the app when the
@@ -57,4 +57,35 @@ app.on('activate', function () {
 })
 
 // In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// code. You can al
+//so put them in separate files and require them here.
+
+
+
+
+
+
+
+
+var http = require('http');
+var fs = require('fs');
+var server = http.createServer(function (req, resp) {
+    if (req.url === "/create") {
+        fs.readFile("Gestion/index.html", function (error, pgResp) {
+            if (error) {
+                resp.writeHead(404);
+                resp.write('Contents you are looking are Not Found');
+            } else {
+                resp.writeHead(200, { 'Content-Type': 'text/html' });
+                resp.write(pgResp);
+            }
+
+            resp.end();
+        });
+    } else {
+        resp.writeHead(200, { 'Content-Type': 'text/html' });
+        resp.write('<h1>Product Manaager</h1><br /><br />To create product please enter: ' + req.url);
+        resp.end();
+    }
+});
+server.listen(5050);

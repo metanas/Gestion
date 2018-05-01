@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
+
     <meta charset="UTF-8">
     <title>Hello World!</title>
-  </head>
-  <body>
-    <h1>Hello World!</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
-
-    <script>
-      // You can also require other files to run in this process
-      require('./renderer.js')
-    </script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+    <body>
+  <div class="containt">
+    <h1>Login To Your Account</h1>
+    <form>
+      <input type="text" name="Email" placeholder="Username"><br>
+      <input type="password" name="Password" placeholder="Password"><br>
+      <input class="Login" type="submit" name="Login" value="Login">
+    </form>
+    <div class="Help">
+      <a href="#">Register</a> - <a href="#">Forget Password</a>
+    </div>
+  </div>
   </body>
 </html>
